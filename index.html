@@ -2,214 +2,976 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>SouthBridge Supply</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>For Em ❤️</title>
-  <meta name="description" content="A tiny love note on a tiny website." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <meta
+    name="description"
+    content="SouthBridge Supply – Surplus & auction-sourced inventory for businesses, makers, and resellers."
+  />
   <style>
-    :root{
-      --bg: radial-gradient(1200px 800px at 10% 10%, #ffe7ef 0%, #fff 40%),
-            radial-gradient(1000px 600px at 90% 0%, #e7f5ff 0%, #fff 50%),
-            linear-gradient(180deg, #fff 0%, #fff 100%);
-      --rose:#e11d48; /* rose-600 */
-      --rose-2:#fb7185; /* rose-400 */
-      --ink:#111827; /* gray-900 */
-      --muted:#6b7280; /* gray-500 */
-      --card:#ffffffcc;
-      --shadow:0 20px 40px rgba(17,24,39,.12);
-      --radius:22px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--ink); background:var(--bg);
-      line-height:1.6;
-    }
-    header{
-      position:relative; overflow:hidden;
-      display:grid; place-items:center;
-      min-height:78vh; padding:6rem 1.25rem 4rem;
-      text-align:center;
-    }
-    .badge{
-      display:inline-flex; gap:.5rem; align-items:center; padding:.4rem .8rem;
-      background:#fff; border:1px solid #f3f4f6; border-radius:999px; box-shadow:var(--shadow);
-      font-size:.85rem; color:var(--muted); font-weight:600;
-    }
-    h1{
-      font-family: "Playfair Display", serif; font-size: clamp(2.2rem, 3vw + 1.5rem, 4.2rem);
-      line-height:1.05; margin:.8rem 0 1rem; letter-spacing:.2px;
-    }
-    .accent{color:var(--rose)}
-    .lead{max-width:48rem; margin:0 auto; font-size:clamp(1.05rem, .7vw + .9rem, 1.25rem); color:#374151}
-    .cta{
-      margin-top:1.75rem; display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap;
-    }
-    .btn{
-      appearance:none; border:0; padding:.95rem 1.25rem; border-radius:14px; font-weight:700; cursor:pointer; transition:.2s transform ease, .2s box-shadow ease;
-    }
-    .btn-primary{background:var(--rose); color:#fff; box-shadow:0 10px 20px rgba(225,29,72,.25)}
-    .btn-primary:hover{transform:translateY(-2px); box-shadow:0 18px 28px rgba(225,29,72,.25)}
-    .btn-ghost{background:#fff; color:#111827; border:1px solid #e5e7eb}
-
-    /* floating hearts (SVG-based for consistent shape) */
-    .heart{
-      position:absolute; width:18px; height:18px; opacity:.9; pointer-events:none;
-    }
-    .heart svg{ display:block; width:100%; height:100%; }
-    @keyframes floatUp{
-      from{ transform:translateY(0); opacity:.95 }
-      to{ transform:translateY(-120vh); opacity:0 }
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #020617;
+      --card: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.75);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --radius-pill: 999px;
+      --max-width: 1080px;
     }
 
-    /* card section */
-    .shell{max-width:1100px; margin:0 auto; padding:0 1.25rem}
-    .card{
-      background:var(--card); backdrop-filter:saturate(130%) blur(6px);
-      border:1px solid #f3f4f6; box-shadow:var(--shadow); border-radius:var(--radius);
-      padding:2rem; margin:-3rem auto 3rem; max-width:900px;
+    * {
+      box-sizing: border-box;
     }
-    .grid{display:grid; gap:1.25rem; grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .tile{background:#fff; border:1px solid #f3f4f6; border-radius:18px; padding:1.25rem}
-    .tile h3{margin:.25rem 0 .35rem; font-size:1rem}
-    .tile p{color:#4b5563; font-size:.95rem; margin:0}
 
-    footer{padding:2.5rem 1.25rem 4rem; text-align:center; color:#6b7280}
-    .sig{font-weight:700; color:#1f2937}
-    .divider{height:1px; background:linear-gradient(90deg,transparent, #f3f4f6, transparent); margin:2rem auto; width:90%}
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #111827, #020617 42%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
 
-    @media (prefers-reduced-motion: reduce){
-      .btn:hover{transform:none}
-      .heart{animation:none}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+      backdrop-filter: blur(18px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.92),
+        rgba(15, 23, 42, 0.86),
+        transparent
+      );
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.85rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: radial-gradient(circle at 10% 0, #22d3ee, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      min-width: 0;
+    }
+
+    .brand-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand-tagline {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-wrap: balance;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 0.2rem 0;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.12rem;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #38bdf8, #a855f7);
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(56, 189, 248, 0.8);
+      background: radial-gradient(circle at top left, #0ea5e9, #1e293b);
+      color: #e5f4ff;
+      font-size: 0.86rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 10px 30px rgba(8, 47, 73, 0.7);
+    }
+
+    .nav-cta span {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      max-width: var(--max-width);
+      margin: 2.1rem auto 1.75rem;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 2.4rem;
+      align-items: center;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.32rem 0.8rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.8);
+      width: fit-content;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.18);
+    }
+
+    .pill-strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-size: clamp(2.15rem, 3.3vw, 2.8rem);
+      line-height: 1.08;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 34rem;
+      text-wrap: pretty;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.3rem;
+    }
+
+    .btn-primary {
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9, #a855f7);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: 0 18px 40px rgba(8, 47, 73, 0.85);
+    }
+
+    .btn-primary span {
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .btn-ghost {
+      padding: 0.7rem 1.2rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .btn-ghost span {
+      font-size: 1.1rem;
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-right {
+      background: radial-gradient(circle at top left, #0ea5e9, #1e293b);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem 1.4rem 1.4rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at 18% 0%,
+        rgba(248, 250, 252, 0.25),
+        transparent 55%
+      );
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .panel-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .panel-chip {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(191, 219, 254, 0.9);
+      background: rgba(15, 23, 42, 0.6);
+      color: #e0f2fe;
+    }
+
+    .inventory-grid {
+      display: grid;
+      gap: 0.6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .inventory-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 14px;
+      padding: 0.75rem 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .inventory-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .inventory-pill {
+      padding: 0.12rem 0.55rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      background: rgba(15, 118, 110, 0.25);
+      color: #a5f3fc;
+      border: 1px solid rgba(45, 212, 191, 0.65);
+    }
+
+    .inventory-main {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .inventory-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .inventory-meta {
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+
+    .inventory-badge {
+      padding: 0.18rem 0.55rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(251, 191, 36, 0.9);
+      background: rgba(30, 64, 175, 0.35);
+      color: #fbbf24;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .hero-footnote {
+      margin-top: 0.85rem;
+      font-size: 0.76rem;
+      color: rgba(226, 232, 240, 0.95);
+    }
+
+    /* Sections */
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1rem 2.3rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .section-title {
+      font-size: 1.12rem;
+      font-weight: 600;
+    }
+
+    .section-sub {
+      font-size: 0.86rem;
+      color: var(--muted);
+      max-width: 26rem;
+      text-wrap: balance;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1.4fr 1.1fr;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 1rem 1rem 1.1rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .card h3 {
+      font-size: 0.98rem;
+      margin: 0 0 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin: 0 0 0.75rem;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    li + li {
+      margin-top: 0.25rem;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .pill-list span {
+      padding: 0.22rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1.2fr 1.1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .contact-card {
+      background: rgba(8, 47, 73, 0.9);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(56, 189, 248, 0.65);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.85rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.4);
+    }
+
+    .contact-row:last-child {
+      border-bottom: none;
+    }
+
+    .contact-label {
+      color: rgba(226, 232, 240, 0.9);
+      font-weight: 500;
+    }
+
+    .contact-value {
+      color: #e0f2fe;
+    }
+
+    .contact-hint {
+      font-size: 0.8rem;
+      color: #bae6fd;
+      margin-top: 0.65rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(30, 64, 175, 0.55);
+      padding: 0.9rem 1rem 1.3rem;
+      margin-top: 0.4rem;
+      background: radial-gradient(circle at bottom, #020617, #020617 55%, #020617);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .columns,
+      .contact {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .nav-inner {
+        padding-inline: 0.75rem;
+      }
+
+      .hero {
+        padding-inline: 0.75rem;
+      }
+
+      .section {
+        padding-inline: 0.75rem;
+      }
+
+      .brand-name {
+        font-size: 0.98rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions button {
+        justify-content: center;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <span class="badge" aria-label="Celebration badge">
-      <span aria-hidden>🎉</span> New site day!
-    </span>
+  <div class="page">
+    <header>
+      <div class="nav-inner">
+        <a href="#top" class="brand">
+          <div class="brand-logo">
+            <!-- Your logo image
+                 Make sure logo.png is in the same folder as this index.html file -->
+            <img src="logo.png" alt="SouthBridge Supply logo" />
+          </div>
+          <div class="brand-text">
+            <div class="brand-name">SouthBridge Supply</div>
+            <div class="brand-tagline">Surplus. Simple. Ready to move.</div>
+          </div>
+        </a>
+        <nav class="nav-links">
+          <a href="#inventory">Inventory</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#contact" class="nav-cta">
+            Wholesale & bulk
+            <span>→</span>
+          </a>
+        </nav>
+      </div>
+    </header>
 
-    <h1>
-      Love you, <span class="accent">Em</span>, happy anniversary 💖
-    </h1>
+    <main id="top">
+      <section class="hero">
+        <div class="hero-left">
+          <div class="pill">
+            <div class="pill-dot"></div>
+            <span class="pill-strong">Auction-sourced surplus</span>
+            <span>for shops, makers & resellers</span>
+          </div>
+          <h1 class="hero-title">
+            We turn overlooked surplus into
+            <span>ready-to-use inventory</span>.
+          </h1>
+          <p class="hero-subtitle">
+            SouthBridge Supply sources pallets, industrial lots, and specialty
+            surplus so you don’t have to. You get clean, well-described stock
+            at honest prices—without spending hours digging through auctions.
+          </p>
+          <div class="hero-actions">
+            <button
+              class="btn-primary"
+              onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
+            >
+              Request current inventory
+              <span>→</span>
+            </button>
+            <button
+              class="btn-ghost"
+              onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'})"
+            >
+              How SouthBridge works
+              <span>ℹ︎</span>
+            </button>
+          </div>
+          <p class="hero-note">
+            Small batches to full pallets • Ideal for small businesses, repair
+            shops, and high-volume resellers.
+          </p>
+        </div>
 
-    <p class="lead">
-      You're my best friend, and doing this adventure with you makes me the happiest man in the world.
-      Thanks for always being supportive, willing to see the vision, and following my craziest ideas.
-    </p>
+        <aside class="hero-right" aria-label="Inventory snapshot">
+          <div class="panel-header">
+            <div class="panel-title">Inventory snapshot</div>
+            <div class="panel-chip">Sample categories</div>
+          </div>
+          <div class="inventory-grid">
+            <div class="inventory-card">
+              <div class="inventory-label">
+                <span>Hardware & textiles</span>
+                <span class="inventory-pill">Zippers & fasteners</span>
+              </div>
+              <div class="inventory-main">
+                <div>
+                  <div class="inventory-name">
+                    Bulk YKK & Ideal zipper lots
+                  </div>
+                  <div class="inventory-meta">
+                    Mixed lengths, colors & tooth styles • Sorted, bundled,
+                    ready for resale or production.
+                  </div>
+                </div>
+                <div class="inventory-badge">Bulk</div>
+              </div>
+            </div>
 
-    <div class="cta">
-      <button class="btn btn-primary" id="shower">Shower of hearts</button>
-      <button class="btn btn-ghost" id="music">Play a tiny chime</button>
-    </div>
-  </header>
+            <div class="inventory-card">
+              <div class="inventory-label">
+                <span>Networking & RF</span>
+                <span class="inventory-pill">Antennas & cabling</span>
+              </div>
+              <div class="inventory-main">
+                <div>
+                  <div class="inventory-name">
+                    TerraWave & enterprise hardware
+                  </div>
+                  <div class="inventory-meta">
+                    Ideal for WISPs, IT shops & surplus electronics dealers.
+                  </div>
+                </div>
+              </div>
+            </div>
 
-  <main class="shell">
-    <!-- Cute card with a short note; safe placeholders you can keep or delete later -->
-    <section class="card" aria-labelledby="note-title">
-      <h2 id="note-title" style="margin:0 0 .5rem; font-size:1.35rem">A tiny note</h2>
-      <p style="margin:0 0 .75rem; color:#374151">
-        If you're seeing this, it means the website is live and the adventure continues. Here's to the next chapter.
-      </p>
-      <p class="sig">-Brad</p>
-    </section>
+            <div class="inventory-card">
+              <div class="inventory-label">
+                <span>Medical & lab surplus</span>
+                <span class="inventory-pill">Tubing & disposables</span>
+              </div>
+              <div class="inventory-main">
+                <div>
+                  <div class="inventory-name">
+                    Medline & compatible consumables
+                  </div>
+                  <div class="inventory-meta">
+                    Boxes of unused surplus perfect for discount resellers.
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <!-- Simple columns that make it feel like a real site template -->
-    <section class="grid" aria-label="Feature list">
-      <article class="tile">
-        <div aria-hidden style="font-size:1.4rem">💌</div>
-        <h3>Why this page exists</h3>
-        <p>A first hello from our little corner of the web.</p>
-      </article>
-      <article class="tile">
-        <div aria-hidden style="font-size:1.4rem">🗺️</div>
-        <h3>Our next adventure</h3>
-        <p>Building a house from nearly scratch.....or buying a whole freaking business??</p>
-      </article>
-      <article class="tile">
-        <div aria-hidden style="font-size:1.4rem">📸</div>
-        <h3>Memories to add</h3>
-        <p>Photos coming soon.</p>
-      </article>
-      <article class="tile">
-        <div aria-hidden style="font-size:1.4rem">🛠️</div>
-        <h3>Under construction</h3>
-        <p>This site will grow. It'll whatever we dream up.</p>
-      </article>
-    </section>
+            <div class="inventory-card">
+              <div class="inventory-label">
+                <span>Logistics-ready</span>
+                <span class="inventory-pill">Pallet lots</span>
+              </div>
+              <div class="inventory-main">
+                <div>
+                  <div class="inventory-name">
+                    Palletized surplus for fast turnover
+                  </div>
+                  <div class="inventory-meta">
+                    Buy by the pallet, flip locally, or feed your own operation.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="hero-footnote">
+            <strong>Note:</strong> The items above are examples of what we
+            typically handle. Reach out for today’s actual inventory list.
+          </p>
+        </aside>
+      </section>
 
-    <div class="divider" role="separator" aria-hidden="true"></div>
-  </main>
+      <section id="inventory" class="section">
+        <div class="section-header">
+          <h2 class="section-title">What we source</h2>
+          <p class="section-sub">
+            Every load is different, but we tend to focus on small-to-medium
+            lots that are easy to understand, easy to move, and fairly priced.
+          </p>
+        </div>
+        <div class="columns">
+          <div class="card">
+            <h3>Core categories</h3>
+            <p>
+              If it’s useful, shippable, and under-loved at auction, we’re
+              interested. Here are the categories we most often work in:
+            </p>
+            <ul>
+              <li>Industrial hardware & textiles (zippers, fasteners, small parts)</li>
+              <li>Networking, RF & IT surplus (antennas, mounts, small electronics)</li>
+              <li>Medical & lab consumables (tubing, accessories, unused disposables)</li>
+              <li>Commercial equipment & fixtures in clean, testable condition</li>
+              <li>Pallet lots ideal for local flippers and small warehouses</li>
+            </ul>
+            <div class="pill-list">
+              <span>Bulk-friendly</span>
+              <span>Reseller-ready</span>
+              <span>Honest descriptions</span>
+              <span>Photos that actually help</span>
+            </div>
+          </div>
 
-  <footer>
-    <p>
-      Love you
-      <br/>
-      <small>© <span id="year"></span> Brad</small>
-    </p>
-  </footer>
+          <div class="card">
+            <h3>How we think about value</h3>
+            <p>
+              We’re not trying to squeeze every last dollar out of each item.
+              Our goal is simple: move good inventory to people who can use it
+              and still leave room for you to profit.
+            </p>
+            <ul>
+              <li>We look at realistic resale comps, not “dream” prices.</li>
+              <li>We try to bundle items logically so you don’t get stuck with junk.</li>
+              <li>We’re upfront about condition, quantity and what we know.</li>
+              <li>We’d rather create repeat customers than one-time wins.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-  <audio id="chime" preload="auto">
-    <source src="data:audio/mp3;base64,//uQZAAAAAAAAAAAAAAAAAAAA" type="audio/mpeg">
-  </audio>
+      <section id="how-it-works" class="section">
+        <div class="section-header">
+          <h2 class="section-title">How SouthBridge Supply works</h2>
+          <p class="section-sub">
+            We do the scouting, sorting, and sanity-checking. You get simple
+            offers that make sense on the first read.
+          </p>
+        </div>
+        <div class="columns">
+          <div class="card">
+            <h3>01. We scout & buy</h3>
+            <p>
+              We monitor auctions, surplus listings, and local opportunities for
+              lots that:
+            </p>
+            <ul>
+              <li>Have clear use cases and real-world demand</li>
+              <li>Can be tested, counted, or verified in a meaningful way</li>
+              <li>Make sense to ship or pick up without crazy logistics</li>
+            </ul>
+
+            <h3 style="margin-top: 1rem;">02. We sort & document</h3>
+            <p>
+              Once in hand, we pull everything apart into understandable units:
+            </p>
+            <ul>
+              <li>Group by type, size, length, or model</li>
+              <li>Count and bundle into logical “lots”</li>
+              <li>Photograph and label so you know what you’re getting</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>03. You get simple options</h3>
+            <p>
+              When you reach out, we’ll share what’s available in a plain
+              language format:
+            </p>
+            <ul>
+              <li>Quick inventory rundown (what, how many, condition)</li>
+              <li>Pricing that leaves room for you to resell or use</li>
+              <li>Notes on shipping vs. local pickup options</li>
+            </ul>
+
+            <h3 style="margin-top: 1rem;">04. We keep it human</h3>
+            <p>
+              No complicated portal. No mystery pallets. Just honest, direct
+              communication and a focus on building relationships with the
+              people who buy from us.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="section-header">
+          <h2 class="section-title">A small outfit with a practical streak</h2>
+          <p class="section-sub">
+            SouthBridge Supply is built around a simple idea: good, usable
+            inventory shouldn’t end up gathering dust in a warehouse or in a
+            landfill.
+          </p>
+        </div>
+        <div class="columns">
+          <div class="card">
+            <h3>Why SouthBridge exists</h3>
+            <p>
+              There’s a huge gap between the way surplus is sold at auction and
+              the way small businesses, repair shops, and resellers actually
+              want to buy. We try to stand in that gap.
+            </p>
+            <ul>
+              <li>We enjoy the hunt and the logistics.</li>
+              <li>You’d rather just know: “Is this a good buy or not?”</li>
+              <li>We’re here for long-term relationships, not one-off scores.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Who we work best with</h3>
+            <p>
+              If you see surplus as an opportunity instead of a headache, we’re
+              probably on the same wavelength.
+            </p>
+            <ul>
+              <li>Small businesses needing affordable inventory</li>
+              <li>Resellers & flippers who value clean, honest lots</li>
+              <li>Shops that like to keep a deep parts bin “just in case”</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Get in touch</h2>
+          <p class="section-sub">
+            Want to see what we’re sitting on right now? Reach out with what
+            you’re looking for and we’ll let you know what matches.
+          </p>
+        </div>
+        <div class="contact">
+          <div class="contact-card">
+            <div class="contact-row">
+              <div class="contact-label">Email</div>
+              <div class="contact-value">
+                <!-- TODO: replace this with your real email address -->
+                <a href="mailto:info@southbridgesupply.com">
+                  info@southbridgesupply.com
+                </a>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-label">Subject line</div>
+              <div class="contact-value">
+                “Current inventory list” or “Looking for &hellip;”
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-label">What to include</div>
+              <div class="contact-value">
+                What you buy, how you use it, and how fast you need it.
+              </div>
+            </div>
+            <p class="contact-hint">
+              The more you share about what you’re trying to do, the better we
+              can match you with the weirdly perfect lot hiding in the back.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Quick note on shipping & pickup</h3>
+            <p>
+              Some items are easy to ship in boxes. Others make more sense as
+              local pickup or pallet freight. When you reach out, we’ll:
+            </p>
+            <ul>
+              <li>Flag what’s realistically shippable vs. pickup-only</li>
+              <li>Give you ballpark shipping options or pickup windows</li>
+              <li>Keep the whole thing as straightforward as possible</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> SouthBridge Supply. All rights reserved.</div>
+        <div class="footer-right">
+          <span>Surplus & auction-sourced inventory</span>
+          <span class="footer-dot"></span>
+          <span>Built for shops, makers & resellers.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
 
   <script>
-    // Spawn floating hearts using an inline SVG path (consistent across browsers)
-    const spawnHeart = () => {
-      const h = document.createElement('div');
-      h.className = 'heart';
-
-      const left = Math.random()*100;        // vw
-      const size = 14 + Math.random()*22;    // px
-      const dur  = 6 + Math.random()*5;      // s
-      const hue  = Math.random()*14 - 7;
-
-      h.style.left = left + 'vw';
-      h.style.bottom = '-24px';
-      h.style.width = size + 'px';
-      h.style.height = size + 'px';
-      h.style.animation = `floatUp ${dur}s linear forwards`;
-
-      h.innerHTML = `
-        <svg viewBox="0 0 24 24" aria-hidden="true" style="filter:hue-rotate(${hue}deg)">
-          <path d="M12 21s-7.2-4.7-9.7-8C.6 10.8 1.2 7.5 3.6 6 5.8 4.6 8.6 5.2 10 7c1.4-1.8 4.2-2.4 6.4-.9 2.4 1.5 3 4.8 1.3 7-2.5 3.3-9.7 8-9.7 8z" fill="var(--rose)"/>
-        </svg>
-      `;
-
-      document.body.appendChild(h);
-      setTimeout(()=> h.remove(), dur*1000);
-    };
-
-    // Gentle idle hearts
-    let idle = setInterval(spawnHeart, 1100);
-
-    // Button: shower of hearts
-    document.getElementById('shower').addEventListener('click', () => {
-      for (let i = 0; i < 70; i++) setTimeout(spawnHeart, i * 40);
-    });
-
-    // Tiny chime: generate a short beep with WebAudio (no external files)
-    document.getElementById('music').addEventListener('click', () => {
-      const ctx = new (window.AudioContext || window.webkitAudioContext)();
-      const now = ctx.currentTime;
-      const notes = [523.25, 659.25, 783.99, 1046.50]; // C5 E5 G5 C6
-      notes.forEach((f, i) => {
-        const o = ctx.createOscillator();
-        const g = ctx.createGain();
-        o.type = 'sine'; o.frequency.value = f; o.connect(g); g.connect(ctx.destination);
-        const t = now + i * 0.08; // slight arpeggio
-        g.gain.setValueAtTime(0, t);
-        g.gain.linearRampToValueAtTime(0.25, t + 0.01);
-        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.35);
-        o.start(t); o.stop(t + 0.4);
-      });
-    });
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Set current year in footer automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
